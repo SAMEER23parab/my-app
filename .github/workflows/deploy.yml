@@ -1,0 +1,28 @@
+name: Deploy to EC2 with Docker
+
+on:
+  push:
+    branches:
+      - main  # or your deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to server via SSH
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        script: |
+          cd ~/cicd-demo
+          git pull origin main
+          sudo docker stop cicdtest || true
+          sudo docker rm cicdtest || true
+          sudo docker build -t cicdtest .
+          sudo docker run -d -p 3000:3000 --name cicdtest cicdtest
