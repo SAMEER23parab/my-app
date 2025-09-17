@@ -7,7 +7,7 @@ const htmlContent = `
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pravin's Dashboard</title>
+  <title>Pravin Jadhav Dashboard</title>
   <style>
     body {
       margin: 0;
