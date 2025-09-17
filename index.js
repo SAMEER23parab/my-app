@@ -38,7 +38,7 @@ const htmlContent = `
 </head>
 <body>
   <div class="dashboard">
-    <h1>Welcome, Pravin!</h1>
+    <h1>Welcome, sameer!</h1>
     <p>This is your beautiful custom dashboard.</p>
   </div>
 </body>
